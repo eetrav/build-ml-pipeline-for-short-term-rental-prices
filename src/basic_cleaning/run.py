@@ -40,7 +40,7 @@ def go(args: dict):
     rental_df['last_review'] = pd.to_datetime(rental_df['last_review'])
 
     #Filter daraframe to lat/long boundaries of NYC
-    idx = rental_df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    idx = rental_df['longitude'].between(-74.25, -73.50) & rental_df['latitude'].between(40.5, 41.2)
     rental_df = rental_df[idx].copy()
 
     rental_df.to_csv(args.output_artifact, index=False)
