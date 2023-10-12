@@ -40,10 +40,8 @@ def go(args: dict):
     rental_df['last_review'] = pd.to_datetime(rental_df['last_review'])
 
     #Filter dataframe to lat/long boundaries of NYC
-    print(len(rental_df))
     idx = rental_df['longitude'].between(-74.25, -73.50) & rental_df['latitude'].between(40.5, 41.2)
     rental_df = rental_df[idx].copy()
-    print(len(rental_df))
 
     rental_df.to_csv(args.output_artifact, index=False)
 
